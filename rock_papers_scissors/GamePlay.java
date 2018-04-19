@@ -35,7 +35,7 @@ public class GamePlay {
 	}
 
 	public String playGame() {
-		
+
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader("C:\\Users\\tom\\Desktop\\keeping_score.txt"));
@@ -72,54 +72,49 @@ public class GamePlay {
 			e.printStackTrace();
 		}
 
-	System.out.println("The game count is: " + gameCount + "\n\nNew Game! Please enter - rock, paper, or scissors!");
+		System.out
+				.println("The game count is: " + gameCount + "\n\nNew Game! Please enter - rock, paper, or scissors!");
 
-	Scanner scanner = new Scanner(System.in);
-	String userInput = scanner.nextLine();
-	String computerChoice = getRandomRockPaperScissors();
+		Scanner scanner = new Scanner(System.in);
+		String userInput = scanner.nextLine();
+		String computerChoice = getRandomRockPaperScissors();
 
-	if(userInput.equalsIgnoreCase(computerChoice))
-	{
-		System.out.println("The computer has chosen " + computerChoice + ". The game is tied!");
-		return "tie";
-	}else if(userInput.equalsIgnoreCase("paper")&&computerChoice.equalsIgnoreCase("rock"))
-	{
-		System.out.println("The computer has chosen " + computerChoice + ". You win, congratulations!");
-		return "win";
+		if (userInput.equalsIgnoreCase(computerChoice)) {
+			System.out.println("The computer has chosen " + computerChoice + ". The game is tied!");
+			scanner.close();
+			return "tie";
+		} else if (userInput.equalsIgnoreCase("paper") && computerChoice.equalsIgnoreCase("rock")) {
+			System.out.println("The computer has chosen " + computerChoice + ". You win, congratulations!");
+			scanner.close();
+			return "win";
 
-	}else if(userInput.equalsIgnoreCase("paper")&&computerChoice.equalsIgnoreCase("scissors"))
-	{
-		System.out.println("The computer has chosen " + computerChoice + ". You lose, sorry!");
-		return "lose";
-	}else if(userInput.equalsIgnoreCase("rock")&&computerChoice.equalsIgnoreCase("scissors"))
-	{
-		System.out.println("The computer has chosen " + computerChoice + ". You win, congratulations!");
-		return "win";
+		} else if (userInput.equalsIgnoreCase("paper") && computerChoice.equalsIgnoreCase("scissors")) {
+			System.out.println("The computer has chosen " + computerChoice + ". You lose, sorry!");
+			scanner.close();
+			return "lose";
+		} else if (userInput.equalsIgnoreCase("rock") && computerChoice.equalsIgnoreCase("scissors")) {
+			System.out.println("The computer has chosen " + computerChoice + ". You win, congratulations!");
+			scanner.close();
+			return "win";
 
-	}else if(userInput.equalsIgnoreCase("rock")&&computerChoice.equalsIgnoreCase("paper"))
-	{
-		System.out.println("The computer has chosen " + computerChoice + ". You lose, sorry!");
-		return "lose";
-	}else if(userInput.equalsIgnoreCase("scissors")&&computerChoice.equalsIgnoreCase("paper"))
-	{
-		System.out.println("The computer has chosen " + computerChoice + ". You win, congratulations!");
-		return "win";
+		} else if (userInput.equalsIgnoreCase("rock") && computerChoice.equalsIgnoreCase("paper")) {
+			System.out.println("The computer has chosen " + computerChoice + ". You lose, sorry!");
+			scanner.close();
+			return "lose";
+		} else if (userInput.equalsIgnoreCase("scissors") && computerChoice.equalsIgnoreCase("paper")) {
+			System.out.println("The computer has chosen " + computerChoice + ". You win, congratulations!");
+			scanner.close();
+			return "win";
 
-	}else if(userInput.equalsIgnoreCase("scissors")&&computerChoice.equalsIgnoreCase("rock"))
-	{
-		System.out.println("The computer has chosen " + computerChoice + ". You lose, sorry!");
-		return "lose";
-	}else
-	{
-		System.out.println(
-				"The computer has chosen " + computerChoice + ". Enter rock, paper, or scissors, to play the game!");
-		return "Null";
-	} 
-}
-
-/*
- * private String replayGame() {
- * System.out.println("Would you like to try again? - input Y or N"); if
- * (userInput.equalsIgnoreCase("Y")) { playGame(); } return "Null"; }
- */
+		} else if (userInput.equalsIgnoreCase("scissors") && computerChoice.equalsIgnoreCase("rock")) {
+			System.out.println("The computer has chosen " + computerChoice + ". You lose, sorry!");
+			scanner.close();
+			return "lose";
+		} else {
+			System.out.println("The computer has chosen " + computerChoice
+					+ ". Enter rock, paper, or scissors, to play the game!");
+			scanner.close();
+			return "Null";
+		}
+	}
 }
